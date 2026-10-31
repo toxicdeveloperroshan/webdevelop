@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roshan Avhad – Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F8; --surface:#FFFFFF; --ink:#13202E; --muted:#56657A; --line:#D5DDE6;
+  --accent:#2B47F0; --accent-ink:#FFFFFF; --ok:#0E8F6B; --code-bg:#13202E; --code-ink:#DCE6F2; --code-key:#8FA6FF; --code-str:#6FE0B8;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1620; --surface:#16212D; --ink:#E7EDF4; --muted:#93A3B7; --line:#26354A;
+    --accent:#8FA6FF; --accent-ink:#0E1620; --ok:#4FD1A5; --code-bg:#0A1119; --code-ink:#DCE6F2;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1620; --surface:#16212D; --ink:#E7EDF4; --muted:#93A3B7; --line:#26354A;
+  --accent:#8FA6FF; --accent-ink:#0E1620; --ok:#4FD1A5; --code-bg:#0A1119; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{display:flex;gap:22px;align-items:center;justify-content:space-between;padding:22px 0}
+nav strong{font:700 19px var(--display)}
+nav div{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:15px}
+nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center;padding:56px 0 80px}
+h1{font:800 clamp(44px,7vw,84px)/0.98 var(--display);letter-spacing:-0.035em;margin:0 0 22px}
+.lede{font-size:19px;max-width:34em;color:var(--muted);margin:0 0 30px}
+.lede b{color:var(--ink);font-weight:500}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:10px;font:700 16px var(--display);text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.btn:hover{transform:translateY(-2px);transition:transform .15s}
+.api{background:var(--code-bg);color:var(--code-ink);border-radius:14px;overflow:hidden;font:400 15px/1.7 ui-monospace,"SF Mono",Menlo,Consolas,monospace;box-shadow:0 18px 40px -22px rgba(19,32,46,.55)}
+.api header{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px}
+.api header span:last-child{color:var(--code-str)}
+.api pre{margin:0;padding:18px;overflow-x:auto;white-space:pre}
+.k{color:var(--code-key)} .s{color:var(--code-str)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font:700 clamp(28px,4vw,40px)/1.1 var(--display);letter-spacing:-0.02em;margin:0 0 32px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card.lead{grid-column:1/-1;border-left:6px solid var(--accent)}
+.card h3{font:700 23px/1.2 var(--display);margin:0 0 4px}
+.tag{display:inline-block;font-size:13px;font-weight:500;padding:2px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);margin-left:8px;vertical-align:middle}
+.tag.live{color:var(--ok);border-color:var(--ok)}
+.stack{color:var(--muted);font-size:15px;margin:0 0 14px}
+.card ul{margin:0;padding-left:20px}
+.card li{margin-bottom:6px;max-width:62ch}
+.skills{display:grid;grid-template-columns:150px 1fr;gap:14px 24px;margin:0}
+.skills dt{font:700 16px var(--display)}
+.skills dd{margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:3px 12px;font-size:15px}
+.chip.basic{color:var(--muted);border-style:dashed}
+.rows .row{display:grid;grid-template-columns:150px 1fr;gap:6px 24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.rows .row:last-child{border-bottom:0}
+.when{color:var(--muted);font-size:15px}
+.rows h3{font:700 19px/1.3 var(--display);margin:0}
+.rows p{margin:4px 0 0;color:var(--muted)}
+.contact{text-align:left}
+.contact p{max-width:34em;color:var(--muted);font-size:19px;margin:0 0 26px}
+.links{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:28px;font-weight:500}
+footer{padding:28px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;gap:36px;padding-top:28px}
+  .grid{grid-template-columns:1fr}
+  .skills,.rows .row{grid-template-columns:1fr;gap:6px}
+  body{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <strong>Roshan Avhad</strong>
+  <div><a href="#work">Projects</a><a href="#skills">Skills</a><a href="#background">Background</a><a href="#contact">Contact</a></div>
+</nav>
+
+<main>
+<div class="hero">
+  <div>
+    <h1>I build full-stack web apps that real people use.</h1>
+    <p class="lede">I’m <b>Roshan</b>, a final-year Computer Engineering student in Nashik. I work in JavaScript, Express.js and MongoDB, and I’m looking for a full-stack developer role where I can ship production-ready products.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:iamroshanavhad@gmail.com">Email me</a>
+      <a class="btn ghost" href="#work">See my projects</a>
+    </div>
+  </div>
+  <div class="api" aria-label="Summary of Roshan as a JSON response">
+    <header><span>GET /roshan</span><span>200 OK</span></header>
+<pre>{
+  <span class="k">"name"</span>: <span class="s">"Roshan Avhad"</span>,
+  <span class="k">"role"</span>: <span class="s">"Full-stack developer"</span>,
+  <span class="k">"level"</span>: <span class="s">"Fresher"</span>,
+  <span class="k">"stack"</span>: [<span class="s">"JavaScript"</span>,
+            <span class="s">"Express.js"</span>,
+            <span class="s">"MongoDB"</span>,
+            <span class="s">"React"</span>],
+  <span class="k">"internship"</span>: <span class="s">"NetLeap IT"</span>,
+  <span class="k">"graduating"</span>: 2027,
+  <span class="k">"location"</span>: <span class="s">"Nashik, India"</span>,
+  <span class="k">"openToWork"</span>: true
+}</pre>
+  </div>
+</div>
+
+<section id="work">
+  <h2>Projects</h2>
+  <div class="grid">
+    <article class="card lead">
+      <h3>CrowdShield AI <span class="tag">Final-year project</span></h3>
+      <p class="stack">React, Node.js, Express.js, MongoDB</p>
+      <ul>
+        <li>Built the frontend, REST APIs and database layer for a five-module platform: cyber safety, crowd intelligence, lost and found, emergency management and admin control.</li>
+        <li>Made separate admin and user dashboards for monitoring, reporting and managing incidents.</li>
+        <li>Worked in a four-member team under faculty guidance, alongside planned ML and computer vision (YOLOv8) modules.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>FixIt <span class="tag">Personal</span></h3>
+      <p class="stack">HTML, CSS, JavaScript, Bootstrap, Express.js, MongoDB</p>
+      <ul>
+        <li>A platform for booking local service professionals such as plumbers and electricians.</li>
+        <li>Responsive Bootstrap frontend connected to a MongoDB-backed backend.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Galaxy Decorators App <span class="tag live">In progress</span></h3>
+      <p class="stack">Android / Full-stack</p>
+      <ul>
+        <li>Business app for an event decoration firm: bill generation, English to Marathi/Hindi translation, map-based travel and worker attendance.</li>
+        <li>Solves a real problem: making English client bills understandable to a Marathi-speaking business owner.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>InTrack</h3>
+      <p class="stack">Intern task and learning tracker</p>
+      <ul><li>A tracker for managing intern tasks and learning progress.</li></ul>
+    </article>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Languages</dt>
+    <dd><span class="chip">JavaScript</span><span class="chip">Java</span><span class="chip">C</span><span class="chip">C++</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip basic">Kotlin (basic)</span></dd>
+    <dt>Frameworks</dt>
+    <dd><span class="chip">Express.js</span><span class="chip">Bootstrap</span><span class="chip basic">React (basic)</span><span class="chip basic">Spring Boot (basic)</span></dd>
+    <dt>Databases</dt>
+    <dd><span class="chip">MongoDB</span><span class="chip">MySQL</span></dd>
+    <dt>Tools</dt>
+    <dd><span class="chip">VS Code</span><span class="chip">Git &amp; GitHub</span><span class="chip">Eclipse</span><span class="chip">Android Studio</span><span class="chip">MongoDB Compass</span></dd>
+  </dl>
+</section>
+
+<section id="background">
+  <h2>Background</h2>
+  <div class="rows">
+    <div class="row">
+      <div class="when">Jan 2026 – Feb 2026</div>
+      <div><h3>Full Stack Web Development Intern, NetLeap IT Training &amp; Solutions</h3>
+      <p>Worked on frontend pages, backend logic and database integration, using Git and GitHub for version control while building and testing features.</p></div>
+    </div>
+    <div class="row">
+      <div class="when">Expected 2027</div>
+      <div><h3>B.E. Computer Engineering</h3><p>Brahma Valley College of Engineering &amp; Research Institute (SPPU)</p></div>
+    </div>
+    <div class="row">
+      <div class="when">2023</div>
+      <div><h3>HSC (12th)</h3><p>Bhausaheb Gunjal Patil Sahyadri Junior College, Sangamner</p></div>
+    </div>
+    <div class="row">
+      <div class="when">2021</div>
+      <div><h3>SSC (10th)</h3><p>New English School, Dapur</p></div>
+    </div>
+    <div class="row">
+      <div class="when">Job simulations</div>
+      <div><h3>Certifications</h3><p>Skyscanner – Front-End Software Engineering · JPMorganChase – Software Engineering · Walmart – Advanced Software Engineering</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Let’s talk about a full-stack role</h2>
+  <p>I’m graduating in 2027 and open to full-time fresher roles. Email is the fastest way to reach me.</p>
+  <div class="btns"><a class="btn primary" href="mailto:iamroshanavhad@gmail.com">iamroshanavhad@gmail.com</a><a class="btn ghost" href="tel:+919309790296">Call 9309790296</a></div>
+  <div class="links">
+    <a href="https://github.com/toxicdeveloperroshan">GitHub</a>
+    <a href="https://linkedin.com/in/roshan-avhad-02nov2004">LinkedIn</a>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Roshan Vitthal Avhad · Nashik, Maharashtra</footer>
+</div>
+</body>
+</html>
